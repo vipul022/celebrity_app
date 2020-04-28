@@ -62,12 +62,13 @@ class CelebritiesController < ApplicationController
     end
 
     def create
-       @celebrity = Celebrity.create(
-        name: params[:name],
-        notability: params[:notability],
-      )
-      redirect_to celebrity_path(@celebrity.id)
-
+       @celebrity = Celebrity.create(celebrity_params)
+    
+        if @celebrity.errors.any?
+          render "new"
+        else  
+          redirect_to celebrities_path
+        end
     end
 
     def new
@@ -104,8 +105,11 @@ class CelebritiesController < ApplicationController
     def set_celebrity
       id = params[:id]
       @celebrity = Celebrity.find(id)
-
     end
 
+    def celebrity_params
+        params.require(:celebrity).permit(:name, :notability, :profile_picture)
+    end
 
 end
+

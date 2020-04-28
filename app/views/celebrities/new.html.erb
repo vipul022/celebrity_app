@@ -17,6 +17,12 @@
 
 </form> -->
 
+<% if @celebrity.errors.any? %>
+      <%@celebrity.errors.full_messages.each do |error|%>%
+      <p><%= error %>  </p>
+      <% end %>
+<% end %>
+
 <%= form_with model: @celebrity, local: true do |form| %>
     <div>
         <%= form.label :name %>
