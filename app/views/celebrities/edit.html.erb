@@ -1,6 +1,6 @@
 <h1> Edit Page</h1>
 
-<form action="<%= celebrity_path(@celebrity.id) %>" method="POST">
+<!--<form action="<%= celebrity_path(@celebrity.id) %>" method="POST">
 <input type="hidden" value ="<%= form_authenticity_token %>"
     name="authenticity_token">
     <input type="hidden" name="_method" value="patch" />
@@ -15,6 +15,28 @@
     <input type="text" name="celebrity[profile_picture]" value="<%= @celebrity.profile_picture %>" />
 
     <input type="submit" value="Update"  >
+</form>-->
+<%= form_with model: @celebrity, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>  
+
+   <div>
+    <%= form.label :notability %>
+    <%= form.text_field :notability %>
+  </div>  
+
+  <div>
+    <%= form.label :profile_picture %>
+    <%= form.text_field :profile_picture %>
+  </div>  
+
+  <div>
+      <%= form.submit %>
+  </div>
+<% end %>
 
 
-</form>
+
+  
