@@ -1,0 +1,40 @@
+<h1> Create a new celebrity</h1>
+
+<!-- <form action="<%= celebrities_path %>" method="POST">
+<input type="hidden" value ="<%= form_authenticity_token %>"
+    name="authenticity_token">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" />
+
+    <label for="notability">Notability</label>
+    <input type="text" name="notability" id="notability" />
+
+    <label for="Image">Image Url</label>
+    <input type="text" name="image" />
+
+    <input type="submit" value="Create"  >
+
+
+</form> -->
+
+<%= form_with model: @celebrity, local: true do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :notability %>
+        <%= form.text_field :notability%>
+    </div>
+
+    <div>
+        <%= form.label :profile_picture %>
+        <%= form.text_field :profile_picture %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+<% end %>

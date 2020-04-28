@@ -1,0 +1,14 @@
+<h1> Index Page</h1>
+<div>
+    <%= link_to("Create New Celebrity", new_celebrity_path) %>
+</div>
+<ol>
+  <%@celebrities.each do |celebrity| %>
+  <%= link_to celebrity_path(celebrity) do %>
+  
+    <li>Name: <%= celebrity.name %> | Notability: <%= celebrity.notability%> </li>
+    
+    <% end %>
+    <img src= "<%= celebrity.profile_picture  %>" alt="A picture of <%= celebrity.name %>"> 
+    <%end%>
+</ol> 
